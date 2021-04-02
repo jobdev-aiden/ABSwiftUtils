@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+
+# Xcode
+[Bb]uild/
+DerivedData/
+[Ii]ndex/
+
+xcuserdata/
+
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xccheckout
+profile
+*.moved-aside
+*.hmap
+*.ipa
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build
+
+# SwiftPackageManager
+.build/
+[Pp]ackages
+xcuserdata
