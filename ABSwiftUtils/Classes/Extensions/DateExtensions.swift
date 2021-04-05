@@ -82,32 +82,32 @@ extension Date {
 // MARK: - Components
 extension Date {
 
-    public var year: UInt {
-        return UInt(Calendar.current.component(.year, from: self))
-    }
-
-    public var month: UInt {
-        return UInt(Calendar.current.component(.month, from: self))
-    }
-
-    public var day: UInt {
-        return UInt(Calendar.current.component(.day, from: self))
-    }
-
-    public var week: UInt {
-        return UInt(Calendar.current.component(.weekday, from: self))
-    }
-
-    public var hour: UInt {
-        return UInt(Calendar.current.component(.hour, from: self))
+    public var second: UInt {
+        return UInt(Calendar.current.component(.second, from: self))
     }
 
     public var minute: UInt {
         return UInt(Calendar.current.component(.minute, from: self))
     }
 
-    public var second: UInt {
-        return UInt(Calendar.current.component(.second, from: self))
+    public var hour: UInt {
+        return UInt(Calendar.current.component(.hour, from: self))
+    }
+
+    public var week: UInt {
+        return UInt(Calendar.current.component(.weekday, from: self))
+    }
+
+    public var day: UInt {
+        return UInt(Calendar.current.component(.day, from: self))
+    }
+
+    public var month: UInt {
+        return UInt(Calendar.current.component(.month, from: self))
+    }
+
+    public var year: UInt {
+        return UInt(Calendar.current.component(.year, from: self))
     }
 
 }
