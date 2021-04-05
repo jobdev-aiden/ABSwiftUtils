@@ -113,6 +113,47 @@ extension Date {
 }
 
 
+// MARK: - Difference
+extension Date {
+
+    public func diffSeconds(_ date: Date) -> Int {
+        let components = Calendar.current.dateComponents([.second], from: self, to: date)
+        return components.second!
+    }
+
+    public func diffMinutes(_ date: Date) -> Int {
+        let components = Calendar.current.dateComponents([.minute], from: self, to: date)
+        return components.minute!
+    }
+
+    public func diffHours(_ date: Date) -> Int {
+        let components = Calendar.current.dateComponents([.hour], from: self, to: date)
+        return components.hour!
+    }
+
+    public func diffDays(_ date: Date) -> Int {
+        let components = Calendar.current.dateComponents([.day], from: self, to: date)
+        return components.day!
+    }
+
+    public func diffWeeks(_ date: Date) -> Int {
+        let components = Calendar.current.dateComponents([.weekOfYear], from: self, to: date)
+        return components.weekOfYear!
+    }
+
+    public func diffMonths(_ date: Date) -> Int {
+        let components = Calendar.current.dateComponents([.month], from: self, to: date)
+        return components.month!
+    }
+
+    public func diffYears(_ date: Date) -> Int {
+        let components = Calendar.current.dateComponents([.year], from: self, to: date)
+        return components.year!
+    }
+
+}
+
+
 // MARK: - Format
 extension Date {
 
@@ -123,6 +164,22 @@ extension Date {
             formatter.locale = Locale(identifier: locale)
         }
         return formatter.string(from: self)
+    }
+
+}
+
+
+// MARK: - Misc
+extension Date {
+
+    public func midnightUTCDate() -> Date {
+        var components = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        components.nanosecond = 0
+        components.timeZone = TimeZone(secondsFromGMT: 0)
+        return Calendar.current.date(from: components)!
     }
 
 }
