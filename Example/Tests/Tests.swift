@@ -161,7 +161,47 @@ class Tests: XCTestCase {
     }
 
     // MARK: - Difference
+    func testDiffSeconds() {
+        let test = today?.add(minutes: 1)
+        let diffSec = today?.diffSeconds(test!)
+        XCTAssert(diffSec == 60, "There should be 60 seconds differences today and test")
+    }
 
+    func testDiffMinutes() {
+        let test = today?.add(seconds: 60)
+        let diffMin = today?.diffMinutes(test!)
+        XCTAssert(diffMin == 1, "There should be 1 minutes differences today and test")
+    }
+
+    func testDiffHours() {
+        let test = today?.add(days: 1)
+        let diffHours = today?.diffHours(test!)
+        XCTAssert(diffHours == 24, "There should be 24 hours differences today and test")
+    }
+
+    func testDiffDays() {
+        let test = today?.add(weeks: 1)
+        let diffDays = today?.diffDays(test!)
+        XCTAssert(diffDays == 7, "There should be 7 days differences today and test")
+    }
+
+    func testDiffWeeks() {
+        let test = today?.add(days: 15)
+        let diffWeeks = today?.diffWeeks(test!)
+        XCTAssert(diffWeeks == 2, "There should be 2 weeks differences today and test")
+    }
+
+    func testDiffMonths() {
+        let test = today?.add(days: 70)
+        let diffMon = today?.diffMonths(test!)
+        XCTAssert(diffMon == 2, "There should be 2 months differences today and test")
+    }
+
+    func testDiffYears() {
+        let test = today?.add(months: 26)
+        let diffYears = today?.diffYears(test!)
+        XCTAssert(diffYears == 2, "There should be 2 years differences today and test")
+    }
 
     //func testPerformanceExample() {
     //    self.measure() {
