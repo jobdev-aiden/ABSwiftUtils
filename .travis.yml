@@ -14,11 +14,11 @@ podfile: Example/Podfile
 before_install:
 - gem install cocoapods
 - pod install --project-directory=Example
-- brew update
-- brew install xctool
+#- brew update
+#- brew install xctool
 
 script:
 - set -o pipefail
-- xctool -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 11' ARCHS='arm64' ONLY_ACTIVE_ARCH=NO
-- xctool -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils_Tests -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 11' ARCHS='arm64' test ONLY_ACTIVE_ARCH=NO
+- xcodebuild -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.0,name=iPhone 11' ARCHS='arm64' ONLY_ACTIVE_ARCH=NO
+- xcodebuild -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils_Tests -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.0,name=iPhone 11' ARCHS='arm64' test ONLY_ACTIVE_ARCH=NO
 - pod lib lint --verbose
