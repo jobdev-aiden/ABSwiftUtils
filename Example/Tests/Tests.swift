@@ -69,16 +69,38 @@ class Tests: XCTestCase {
     func testAddComponents() {
         let date = fixedDate?.addComponents(seconds: 10, minutes: 10, hours: 5, days: 1, months: 1, years: -1)
         XCTAssert(
-            1 == 1
-                && date!.second == 20
-                && date!.minute == 40
-                && date!.hour == 19
-                && date!.day == 2
-                && date!.month == 5
-                && date!.year == 2020
-                && date!.toString("yyyy-MM-dd HH:mm:ss") == "2020-05-02 19:40:20",
+            1 == 1 &&
+                date!.second == 20 &&
+                date!.minute == 40 &&
+                date!.hour == 19 &&
+                date!.day == 2 &&
+                date!.month == 5 &&
+                date!.year == 2020 &&
+                date!.toString("yyyy-MM-dd HH:mm:ss") == "2020-05-02 19:40:20",
             "Date should be 2020-05-02 19:40:20"
         )
+    }
+
+    // MARK: - Compare
+    func testIsGreatherThan() {
+        let now = Date()
+        let new = now.add(days: 1)
+        let isGreather = new.isGreaterThan(now)
+        XCTAssert(isGreather == true, "New should be greater than Now")
+    }
+
+    func testIsLessThan() {
+        let now = Date()
+        let new = now.add(days: 1)
+        let isLess = now.isLessThan(new)
+        XCTAssert(isLess == true, "Now should be less than New")
+    }
+
+    func testIsEqual() {
+        let now = Date()
+        let new = now.add(seconds: 1)
+        let isEqual = now.isEqual(new)
+        XCTAssert(isEqual != true, "Now should not be equal to New")
     }
 
     // MARK: - Components
@@ -137,6 +159,9 @@ class Tests: XCTestCase {
         }
         XCTAssert(year == 2021, "Year should be 2021")
     }
+
+    // MARK: - Difference
+
 
     //func testPerformanceExample() {
     //    self.measure() {
