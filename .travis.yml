@@ -21,5 +21,5 @@ before_install:
 script:
 - set -o pipefail
 - travis_retry xcodebuild -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils-Example -sdk iphonesimulator ARCHS='arm64' ONLY_ACTIVE_ARCH=NO
-- travis_retry xcodebuild test -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils_Tests -sdk iphonesimulator ARCHS='arm64' ONLY_ACTIVE_ARCH=NO
+#- travis_retry xcodebuild test -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils_Tests -sdk iphonesimulator ARCHS='arm64' ONLY_ACTIVE_ARCH=NO
 - pod lib lint --verbose
