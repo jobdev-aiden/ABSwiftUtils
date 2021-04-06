@@ -17,6 +17,6 @@ before_install:
 
 script:
 - set -o pipefail
-- xctool -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-- xctool test -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+- xctool -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 12' ONLY_ACTIVE_ARCH=NO
+- xctool -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils_Tests -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 12' test ONLY_ACTIVE_ARCH=NO
 - pod lib lint --verbose
