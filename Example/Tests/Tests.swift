@@ -69,16 +69,38 @@ class Tests: XCTestCase {
     func testAddComponents() {
         let date = fixedDate?.addComponents(seconds: 10, minutes: 10, hours: 5, days: 1, months: 1, years: -1)
         XCTAssert(
-            1 == 1
-                && date!.second == 20
-                && date!.minute == 40
-                && date!.hour == 19
-                && date!.day == 2
-                && date!.month == 5
-                && date!.year == 2020
-                && date!.toString("yyyy-MM-dd HH:mm:ss") == "2020-05-02 19:40:20",
+            1 == 1 &&
+                date!.second == 20 &&
+                date!.minute == 40 &&
+                date!.hour == 19 &&
+                date!.day == 2 &&
+                date!.month == 5 &&
+                date!.year == 2020 &&
+                date!.toString("yyyy-MM-dd HH:mm:ss") == "2020-05-02 19:40:20",
             "Date should be 2020-05-02 19:40:20"
         )
+    }
+
+    // MARK: - Compare
+    func testIsGreatherThan() {
+        let now = Date()
+        let new = now.add(days: 1)
+        let isGreather = new.isGreaterThan(now)
+        XCTAssert(isGreather == true, "New should be greater than Now")
+    }
+
+    func testIsLessThan() {
+        let now = Date()
+        let new = now.add(days: 1)
+        let isLess = now.isLessThan(new)
+        XCTAssert(isLess == true, "Now should be less than New")
+    }
+
+    func testIsEqual() {
+        let now = Date()
+        let new = now.add(seconds: 1)
+        let isEqual = now.isEqual(new)
+        XCTAssert(isEqual != true, "Now should not be equal to New")
     }
 
     // MARK: - Components
@@ -136,6 +158,49 @@ class Tests: XCTestCase {
             year = date.year
         }
         XCTAssert(year == 2021, "Year should be 2021")
+    }
+
+    // MARK: - Difference
+    func testDiffSeconds() {
+        let test = today?.add(minutes: 1)
+        let diffSec = today?.diffSeconds(test!)
+        XCTAssert(diffSec == 60, "There should be 60 seconds differences today and test")
+    }
+
+    func testDiffMinutes() {
+        let test = today?.add(seconds: 60)
+        let diffMin = today?.diffMinutes(test!)
+        XCTAssert(diffMin == 1, "There should be 1 minutes differences today and test")
+    }
+
+    func testDiffHours() {
+        let test = today?.add(days: 1)
+        let diffHours = today?.diffHours(test!)
+        XCTAssert(diffHours == 24, "There should be 24 hours differences today and test")
+    }
+
+    func testDiffDays() {
+        let test = today?.add(weeks: 1)
+        let diffDays = today?.diffDays(test!)
+        XCTAssert(diffDays == 7, "There should be 7 days differences today and test")
+    }
+
+    func testDiffWeeks() {
+        let test = today?.add(days: 15)
+        let diffWeeks = today?.diffWeeks(test!)
+        XCTAssert(diffWeeks == 2, "There should be 2 weeks differences today and test")
+    }
+
+    func testDiffMonths() {
+        let test = today?.add(days: 70)
+        let diffMon = today?.diffMonths(test!)
+        XCTAssert(diffMon == 2, "There should be 2 months differences today and test")
+    }
+
+    func testDiffYears() {
+        let test = today?.add(months: 26)
+        let diffYears = today?.diffYears(test!)
+        XCTAssert(diffYears == 2, "There should be 2 years differences today and test")
     }
 
     //func testPerformanceExample() {
