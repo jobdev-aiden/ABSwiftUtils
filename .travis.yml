@@ -18,12 +18,8 @@ before_install:
 #- brew update
 #- brew install xctool
 
-- export IOS_SIMULATOR_UDID=`instruments -s devices | grep "iPhone 11"`
-- echo $IOS_SIMULATOR_UDID
-- open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
-
 script:
 - set -o pipefail
-- travis_retry xcodebuild -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.2,name=iPhone 11' ARCHS='arm64' ONLY_ACTIVE_ARCH=NO
-- travis_retry xcodebuild test -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils_Tests -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.2,name=iPhone 11' ARCHS='arm64' ONLY_ACTIVE_ARCH=NO
+- travis_retry xcodebuild -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils-Example -sdk iphonesimulator ARCHS='arm64' ONLY_ACTIVE_ARCH=NO
+- travis_retry xcodebuild test -workspace Example/ABSwiftUtils.xcworkspace -scheme ABSwiftUtils_Tests -sdk iphonesimulator ARCHS='arm64' ONLY_ACTIVE_ARCH=NO
 - pod lib lint --verbose
