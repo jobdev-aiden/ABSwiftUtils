@@ -171,3 +171,16 @@ print("with midnightUTCDate()   : \(date2), \(date2.year), \(date2.month), \(dat
 print("with midnightUTCDate()   : \(date2.toString(formatter.dateFormat))")
 // with midnightUTCDate()   : 1975-09-16
 ```
+
+## StringExtensions
+
+### DateFormat
+
+```swift
+let from = "2021-04-01"
+let date = from.toDate("yyyy-MM-dd")
+let to = date?.toString("yyyy-MM-dd")
+print(to!)
+// 2021-04-01
+```
+
