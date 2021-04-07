@@ -2,7 +2,7 @@ import ABSwiftUtils
 import XCTest
 
 
-class Tests: XCTestCase {
+class DateExtensionsTests: XCTestCase {
 
     var today: Date?
     var fixedDate: Date?
