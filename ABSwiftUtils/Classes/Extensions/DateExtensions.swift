@@ -178,7 +178,6 @@ extension Date {
         components.minute = 0
         components.second = 0
         components.nanosecond = 0
-        components.timeZone = TimeZone(secondsFromGMT: 0)
         return Calendar.current.date(from: components)!
     }
 
