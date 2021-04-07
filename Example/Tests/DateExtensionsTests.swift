@@ -203,6 +203,24 @@ class Tests: XCTestCase {
         XCTAssert(diffYears == 2, "There should be 2 years differences today and test")
     }
 
+    // MARK: - Format
+    func testToString() {
+        let str = fixedDate?.toString("yyyy-MM-dd hh:mm:ss")
+        XCTAssert(str! == "2021-04-01 02:30:10", "String should be 2021-04-01 14:30:10")
+    }
+
+    func testToString2() {
+        let str = fixedDate?.toString("yyyy년 M월 d일 E요일 a h시 m분 s초", locale: "ko")
+        XCTAssert(str! == "2021년 4월 1일 목요일 오후 2시 30분 10초", "String should be 2021년 4월 1일 목요일 오후 2시 30분 10초")
+    }
+
+    // MARK: - Misc
+    func testMidnightUTCDate() {
+        let date = fixedDate?.midnightUTCDate()
+        let str = date?.toString("yyyy-MM-dd HH:mm:ss", locale: "kr")
+        XCTAssert(str! == "2021-04-01 00:00:00", "String should be 2021-04-01 00:00:00")
+    }
+
     //func testPerformanceExample() {
     //    self.measure() {
     //    }
