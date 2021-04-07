@@ -19,9 +19,9 @@ ABSwiftUtils is available through [CocoaPods](https://cocoapods.org). To install
 pod 'ABSwiftUtils'
 ```
 
-## Date Extensions
+## DateExtensions
 
-### Date Add Components
+### Add Components
 
 ```swift
 let date = Date()
@@ -53,7 +53,7 @@ print("add -1 years  : \(date.add(years: -1))")
 // add -1 years  : 2020-04-05 02:27:39 +0000
 ```
 
-### Date Compares
+### Compares
 
 ```swift
 let date1 = Date()
@@ -73,7 +73,7 @@ print(date1.isLessThan(date2))
 // true
 ```
 
-### Date Components
+### Components
 
 ```swift
 let date = Date()
@@ -94,7 +94,7 @@ print(date.second)
 // ex) 24
 ```
 
-### Date Difference
+### Difference
 
 ```swift
 let date1 = Date()
@@ -134,7 +134,7 @@ print("years   : \(years)")
 // years   : 1
 ```
 
-### Date Formatter
+### Format
 
 ```swift
 let date = Date()
@@ -152,7 +152,7 @@ print(date.toString("yyyy년 M월 d일 EEEE a h시 m분 s초", locale: "ko"))
 // ex) 2021년 4월 5일 월요일 오전 10시 53분 24초
 ```
 
-### Date Misc
+### Misc
 
 ```swift
 let str = "1975-09-16"
