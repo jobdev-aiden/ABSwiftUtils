@@ -157,12 +157,10 @@ extension Date {
 // MARK: - Format
 extension Date {
 
-    public func toString(_ format: String, locale: String = "") -> String {
+    public func toString(_ format: String, locale: String = Locale.current.identifier) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
-        if locale.count > 0 {
-            formatter.locale = Locale(identifier: locale)
-        }
+        formatter.locale = Locale(identifier: locale)
         return formatter.string(from: self)
     }
 
