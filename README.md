@@ -174,6 +174,52 @@ print("with midnightUTCDate()   : \(date2.toString(formatter.dateFormat))")
 
 ## StringExtensions
 
+### Character
+
+```swift
+let str1 = "abc123"
+print("\"\(str1)\".isAlphaNumberic: \(str1.isAlphaNumeric)")    // true
+print("\"\(str1)\".isOnlyDigits   : \(str1.isOnlyDigits)")      // false
+print("\"\(str1)\".isOnlyLetters  : \(str1.isOnlyLetters)")     // false
+print("-----")
+
+let str2 = "abc123가나다"
+print("\"\(str2)\".isAlphaNumberic: \(str2.isAlphaNumeric)")    // true
+print("\"\(str2)\".isOnlyDigits   : \(str2.isOnlyDigits)")      // false
+print("\"\(str2)\".isOnlyLetters  : \(str2.isOnlyLetters)")     // false
+print("-----")
+
+let str3 = "가나다123"
+print("\"\(str3)\".isAlphaNumberic: \(str3.isAlphaNumeric)")    // true
+print("\"\(str3)\".isOnlyDigits   : \(str3.isOnlyDigits)")      // false
+print("\"\(str3)\".isOnlyLetters  : \(str3.isOnlyLetters)")     // false
+print("-----")
+
+let str4 = "abc123---"
+print("\"\(str4)\".isAlphaNumberic: \(str4.isAlphaNumeric)")    // false
+print("\"\(str4)\".isOnlyDigits   : \(str4.isOnlyDigits)")      // false
+print("\"\(str4)\".isOnlyLetters  : \(str4.isOnlyLetters)")     // false
+print("-----")
+
+let str5 = "1234567890"
+print("\"\(str5)\".isAlphaNumberic: \(str5.isAlphaNumeric)")    // true
+print("\"\(str5)\".isOnlyDigits   : \(str5.isOnlyDigits)")      // true
+print("\"\(str5)\".isOnlyLetters  : \(str5.isOnlyLetters)")     // false
+print("-----")
+
+let str6 = "abcdef"
+print("\"\(str6)\".isAlphaNumberic: \(str6.isAlphaNumeric)")    // true
+print("\"\(str6)\".isOnlyDigits   : \(str6.isOnlyDigits)")      // false
+print("\"\(str6)\".isOnlyLetters  : \(str6.isOnlyLetters)")     // true
+print("-----")
+
+let str7 = "abc가나다"
+print("\"\(str7)\".isAlphaNumberic: \(str7.isAlphaNumeric)")    // true
+print("\"\(str7)\".isOnlyDigits   : \(str7.isOnlyDigits)")      // false
+print("\"\(str7)\".isOnlyLetters  : \(str7.isOnlyLetters)")     // true
+print("-----")
+```
+
 ### DateFormat
 
 ```swift
@@ -188,5 +234,21 @@ print("date: \(date) - type: \(type(of: date))")
 let to: String = date.toString("yyyy-MM-dd")
 print("to  : \(to) - type: \(type(of: to))")
 // to  : 2021-04-01 - type: String
+```
+
+### Validation
+
+```swift
+let email1 = "abcd@abc.com"
+print("\"\(email1.isEmail)\".: \(email1.isEmail)")  // true
+
+let email2 = "abcd@abc"
+print("\"\(email2.isEmail)\".: \(email2.isEmail)")  // false
+
+let email3 = "abcd@abc."
+print("\"\(email3.isEmail)\".: \(email3.isEmail)")  // false
+
+let email4 = "abcd@a.c"
+print("\"\(email4.isEmail)\".: \(email4.isEmail)")  // false
 ```
 
