@@ -7,6 +7,27 @@
 import Foundation
 
 
+// MARK: - Character
+extension String {
+
+    public var isAlphaNumeric: Bool {
+        let notAlphaNumeric = NSCharacterSet.decimalDigits.union(CharacterSet.letters).inverted
+        return rangeOfCharacter(from: notAlphaNumeric, options: .literal, range: nil) == nil
+    }
+
+    public var isOnlyDigits: Bool {
+        let notDigits = NSCharacterSet.decimalDigits.inverted
+        return rangeOfCharacter(from: notDigits, options: .literal, range: nil) == nil
+    }
+
+    public var isOnlyLetters: Bool {
+        let notLetters = NSCharacterSet.letters.inverted
+        return rangeOfCharacter(from: notLetters, options: .literal, range: nil) == nil
+    }
+
+}
+
+
 // MARK: - DateFormat
 extension String {
 
