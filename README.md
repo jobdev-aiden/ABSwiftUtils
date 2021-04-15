@@ -177,10 +177,16 @@ print("with midnightUTCDate()   : \(date2.toString(formatter.dateFormat))")
 ### DateFormat
 
 ```swift
-let from = "2021-04-01"
-let date = from.toDate("yyyy-MM-dd")
-let to = date?.toString("yyyy-MM-dd")
-print(to!)
-// 2021-04-01
+let from: String = "2021-04-01"
+print("from: \(from) - type: \(type(of: from))")
+// from: 2021-04-01 - type: String
+
+let date: Date = from.toDate("yyyy-MM-dd")!
+print("date: \(date) - type: \(type(of: date))")
+// date: 2021-03-31 15:00:00 +0000 - type: Date
+
+let to: String = date.toString("yyyy-MM-dd")
+print("to  : \(to) - type: \(type(of: to))")
+// to  : 2021-04-01 - type: String
 ```
 
