@@ -7,10 +7,29 @@
 import Foundation
 
 
-// MARK: - Character
+// MARK: - AppVersion
 extension UIApplication {
 
-    class func topViewController(
+    class public func appBuildVersion() -> String {
+        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String
+    }
+
+    class public func appShortVersion() -> String {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+    }
+
+    class public func appVersion() -> String {
+        let short = appShortVersion(), build = appBuildVersion()
+        return short == build ? "\(short)" : "\(short)(\(build))"
+    }
+
+}
+
+
+// MARK: - UIViewController
+extension UIApplication {
+
+    class public func topViewController(
         baseController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController
     ) -> UIViewController? {
         if let tab = baseController as? UITabBarController {
